@@ -1,0 +1,5 @@
+<h1>Welcome <%= current_user.full_name %> </h1>
+<% if user_signed_in?%>
+  <%= button_to "logout", destroy_user_session_path, method: :delete  %>
+  <%= link_to 'create danjay' %>
+<% end %>
