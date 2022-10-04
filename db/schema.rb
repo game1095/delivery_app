@@ -14,6 +14,22 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_03_085032) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "branch_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "branches", force: :cascade do |t|
+    t.string "name"
+    t.bigint "branch_type_id"
+    t.bigint "post_office_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["branch_type_id"], name: "index_branches_on_branch_type_id"
+    t.index ["post_office_id"], name: "index_branches_on_post_office_id"
+  end
+
   create_table "post_offices", force: :cascade do |t|
     t.string "name"
     t.string "post_code"
@@ -37,5 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_03_085032) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "branches", "branch_types"
+  add_foreign_key "branches", "post_offices"
   add_foreign_key "users", "post_offices"
 end
