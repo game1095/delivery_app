@@ -1,0 +1,6 @@
+<%= form_for @branch do |form| %>
+  <%= form.text_field :name %>
+  <%= form.collection_select :branch_type_id , BranchType.all , :id , :name  %>
+  <%= form.hidden_field :post_office_id , value: current_user.post_office.id %>
+  <%= form.submit %>
+<% end %>
