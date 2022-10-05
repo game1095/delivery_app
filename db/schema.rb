@@ -22,6 +22,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_03_085032) do
 
   create_table "branches", force: :cascade do |t|
     t.string "name"
+    t.string "north"
+    t.string "south"
+    t.string "west"
+    t.string "east"
+    t.text "important_place"
+    t.text "important_road"
+    t.text "geography"
     t.bigint "branch_type_id"
     t.bigint "post_office_id"
     t.datetime "created_at", null: false
