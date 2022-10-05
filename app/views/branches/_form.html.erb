@@ -1,6 +1,72 @@
-<%= form_for @branch do |form| %>
-  <%= form.text_field :name %>
-  <%= form.collection_select :branch_type_id , BranchType.all , :id , :name  %>
-  <%= form.hidden_field :post_office_id , value: current_user.post_office.id %>
-  <%= form.submit %>
+<div class="card">
+  <div class="card-body">
+    <%= form_for @branch do |form| %>
+    <div class="row">
+      <div class="col-6">
+        <div class="form-group">
+          <%= form.label :ชื่อด้านจ่าย , class: 'control-label' %>
+          <%= form.text_field :name , class: 'form-control'%>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <%= form.label :ประเภทด้านจ่าย , class: 'control-label' %>
+          <%= form.collection_select :branch_type_id , BranchType.all , :id , :name  %>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="form-group">
+          <%= form.label :ทิศเหนือจรด , class: 'control-label' %>
+          <%= form.text_field :north , class: 'form-control'%>
+        </div>
+        <div class="form-group">
+          <%= form.label :ทิศตะวันออกจรด , class: 'control-label' %>
+          <%= form.text_field :east , class: 'form-control'%>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="form-group">
+          <%= form.label :ทิศใต้จรด , class: 'control-label' %>
+          <%= form.text_field :south , class: 'form-control'%>
+        </div>
+        <div class="form-group">
+          <%= form.label :ทิศตะวันตกจรด , class: 'control-label' %>
+          <%= form.text_field :west , class: 'form-control'%>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <div class="form-group">
+          <%= form.label :สถานที่สำคัญ , class: 'control.label' %>
+          <%= form.text_area :important_place , class: 'form-control'%>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <%= form.label :ถนนตรอกซอยที่สำคัญ , class: 'control.label' %>
+          <%= form.text_area :important_road , class: 'form-control'%>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group">
+          <%= form.label :สภาพภูมิประเทศของท้องถิ่น , class: 'control.label' %>
+          <%= form.text_area :geography , class: 'form-control'%>
+        </div>
+      </div>
+    </div>
+    <br>
+    <%= form.hidden_field :post_office_id , value: current_user.post_office.id %>
+    <div class="row">
+        <%= form.submit 'บันทึกข้อมูล' , class: 'btn btn-success btn-lg btn-block' %><br>
+        <%= link_to 'ย้อนกลับ' , root_path , class: 'btn btn-danger  btn-lg btn-block' %>
+    </div>
+  </div>
+</div>
 <% end %>

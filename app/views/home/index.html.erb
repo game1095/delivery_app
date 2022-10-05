@@ -1,24 +1,40 @@
-<h1>ยินดีต้อนรับ : <%= current_user.full_name %> </h1>
 <% if user_signed_in?%>
-  <%= button_to "ออกจากระบบ", destroy_user_session_path, method: :delete  %>
   <%= link_to 'สร้างด้านจ่าย' , new_branch_path %>
 <% end %>
-
-  <table>
-    <thead>
-      <th>ลำดับ</th>
-      <th>ชื่อด้านจ่าย</th>
-      <th>ประเภท</th>
-      <th>ที่ทำการ</th>
-    </thead>
-    <tbody>
-      <% @branchs.each do |branch| %>
-      <tr>
-        <td><%=  %></td>
-        <td><%= branch.name %></td>
-        <td><%= branch.branch_type.name %></td>
-        <td><%= branch.post_office.name %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+<div class="row">
+  <div class="col-6">
+    <table class="table table-hover table-bordered">
+      <thead>
+        <th>ลำดับ</th>
+        <th>ชื่อด้านจ่าย</th>
+        <th>ประเภท</th>
+        <th>ที่ทำการ</th>
+        <th></th>
+      </thead>
+      <tbody>
+        <% @branchs.each do |branch| %>
+        <tr>
+          <td><%=  %></td>
+          <td><%= branch.name %></td>
+          <td><%= branch.branch_type.name %></td>
+          <td><%= branch.post_office.name %></td>
+          <td>
+            <%= link_to branch_path(branch.id) do %>
+              <i class="fa fa-regular fa-eye btn btn-primary btn-sm"></i>
+            <% end %>
+            <%= link_to edit_branch_path(branch.id) do %>
+              <i class="fa fa-regular fa-pen-to-square btn btn-warning btn-sm"></i>
+            <% end %>
+            <%= link_to branch_path(branch.id),method: :delete do %>
+              <i class="fa fa-trash btn btn-danger btn-sm"></i>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-6">
+    <h1>stfu</h1>
+  </div>
+</div>
