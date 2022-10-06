@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_03_085032) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_05_045800) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -35,6 +35,23 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_03_085032) do
     t.datetime "updated_at", null: false
     t.index ["branch_type_id"], name: "index_branches_on_branch_type_id"
     t.index ["post_office_id"], name: "index_branches_on_post_office_id"
+  end
+
+  create_table "points", force: :cascade do |t|
+    t.string "delivery_point"
+    t.string "section"
+    t.string "house_number"
+    t.string "moo"
+    t.string "village"
+    t.string "road"
+    t.string "sub_district"
+    t.string "district"
+    t.string "province"
+    t.string "landmark"
+    t.bigint "branch_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["branch_id"], name: "index_points_on_branch_id"
   end
 
   create_table "post_offices", force: :cascade do |t|
@@ -62,5 +79,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_03_085032) do
 
   add_foreign_key "branches", "branch_types"
   add_foreign_key "branches", "post_offices"
+  add_foreign_key "points", "branches"
   add_foreign_key "users", "post_offices"
 end

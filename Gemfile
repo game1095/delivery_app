@@ -19,9 +19,9 @@ gem 'jquery-rails'
 # gem "font-awesome-rails"
 gem "font-awesome-sass", "~> 6.2.0"
 
-
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'better_errors', '~> 2.9', '>= 2.9.1'
 end
 
 group :development do
