@@ -1,31 +1,51 @@
-<h1>show</h1>
-<p>
-  <%= @branch.name %>
-</p>
-<p>
-  <%= @branch.north %>
-</p>
-<p>
-  <%= @branch.south %>
-</p>
-<p>
-  <%= @branch.west %>
-</p>
-<p>
-  <%= @branch.east %>
-</p>
-<p>
-  <%= @branch.important_place %>
-</p>
-<p>
-  <%= @branch.important_road %>
-</p>
-<p>
-  <%= @branch.geography %>
-</p>
-<p>
-  <%= @branch.branch_type.name %>
-</p>
-<p>
-  <%= @branch.post_office.name %>
-</p>
+<h1>ข้อมูลเพิ่มเดิมด้านจ่าย</h1>
+<div class="row">
+  <div class="col-4">
+
+  </div>
+  <div class="col-8">
+    <p>
+      <table class="table table-hover table-bordered">
+        <thead>
+          <th>จุดจ่าย</th>
+          <th>ระวาง</th>
+          <th>บ้านเลขที่</th>
+          <th>หมู่ที่</th>
+          <th>หมู่บ้าน</th>
+          <th>ถนน</th>
+          <th>ตำบล</th>
+          <th>อำเภอ</th>
+          <th>จังหวัด</th>
+          <th></th>
+        </thead>
+        <tbody>
+          <% @branch.point.each do |point| %>
+            <tr>
+              <td><%= point.delivery_point %></td>
+              <td><%= point.section %></td>
+              <td><%= point.house_number %></td>
+              <td><%= point.moo %></td>
+              <td><%= point.village %></td>
+              <td><%= point.road %></td>
+              <td><%= point.sub_district %></td>
+              <td><%= point.district %></td>
+              <td><%= point.province %></td>
+              <td>
+                <%= link_to point_path(point.id) do %>
+                  <i class="fa fa-regular fa-eye btn btn-primary btn-sm"></i>
+                <% end %>
+                <%= link_to edit_point_path(point.id) do %>
+                  <i class="fa fa-regular fa-pen-to-square btn btn-warning btn-sm"></i>
+                <% end %>
+                <%= link_to point_path(point.id),method: :delete do %>
+                  <i class="fa fa-trash btn btn-danger btn-sm"></i>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </p>
+  </div>
+
+</div>
