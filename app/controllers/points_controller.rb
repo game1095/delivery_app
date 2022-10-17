@@ -17,7 +17,13 @@ class PointsController < ApplicationController
   end
 
   def update
+    if @point = Point.find(params[:id]).update(point_params)
+      redirect_to root_path
+    end
+  end
 
+  def show
+    @point = Point.find(params[:id])
   end
 
   def destroy
