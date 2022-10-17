@@ -1,41 +1,65 @@
 <% if user_signed_in?%>
-  <%= link_to 'สร้างด้านจ่าย' , new_branch_path %>
-  <%= link_to 'สร้างจุดจ่าย' , new_point_path %>
+  <%= link_to new_branch_path do %>
+    <button class="btn btn-primary dim btn-large-dim" type="button"><i class="fa fa-plus"><h5>สร้างด้านจ่าย</h5></i></button>
+  <% end %>
+
+  <%= link_to new_point_path do %>
+    <button class="btn btn-success dim btn-large-dim" type="button"><i class="fa fa-map-marker"><h5>สร้างจุดจ่าย</h5></i></button>
+  <% end %>
+
+  <%= link_to new_point_path do %>
+    <button class="btn btn-info dim btn-large-dim" type="button"><i class="fa fa-envelope"><h5 class="center">คู่มือนำจ่าย</h5></i></button>
+  <% end %>
+
+  <%= link_to new_point_path do %>
+    <button class="btn btn-primary dim btn-large-dim" type="button"><i class="fa fa-info"><h5 class="center">ช่วยเหลือ</h5></i></button>
+  <% end %>
+
 <% end %>
 <div class="row">
-  <div class="col-6">
-    <table class="table table-hover table-bordered">
-      <thead>
-        <th>ลำดับ</th>
-        <th>ชื่อด้านจ่าย</th>
-        <th>ประเภท</th>
-        <th>ที่ทำการ</th>
-        <th></th>
-      </thead>
-      <tbody>
-        <% @branchs.each do |branch| %>
-        <tr>
-          <td><%=  %></td>
-          <td><%= branch.name %></td>
-          <td><%= branch.branch_type.name %></td>
-          <td><%= branch.post_office.name %></td>
-          <td>
-            <%= link_to branch_path(branch.id) do %>
-              <i class="fa fa-regular fa-eye btn btn-primary btn-sm"></i>
-            <% end %>
-            <%= link_to edit_branch_path(branch.id) do %>
-              <i class="fa fa-regular fa-pen-to-square btn btn-warning btn-sm"></i>
-            <% end %>
-            <%= link_to branch_path(branch.id),method: :delete do %>
-              <i class="fa fa-trash btn btn-danger btn-sm"></i>
-            <% end %>
-          </td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
+  <div class="col-lg-4">
+    <div class="ibox">
+      <div class="ibox-title"><b>ข้อมูลทั่วไป</b></div>
+      <div class="ibox-content">
+        <h1>นึกออกค่อยใส่</h1>
+      </div>
+    </div>
   </div>
-  <div class="col-6">
-    <h1>stfu</h1>
+  <div class="col-lg-8">
+    <div class="ibox">
+      <div class="ibox-title"><b>ข้อมูลด้านจ่าย</b></div>
+      <div class="ibox-content">
+        <table class="table table-hover table-bordered">
+          <thead>
+            <th>ลำดับ</th>
+            <th>ชื่อด้านจ่าย</th>
+            <th>ประเภท</th>
+            <th>ที่ทำการ</th>
+            <th></th>
+          </thead>
+          <tbody>
+            <% @branchs.each do |branch| %>
+            <tr>
+              <td><%=  %></td>
+              <td><%= branch.name %></td>
+              <td><%= branch.branch_type.name %></td>
+              <td><%= branch.post_office.name %></td>
+              <td>
+                <%= link_to branch_path(branch.id) do %>
+                <i class="fa fa-regular fa-eye btn btn-primary btn-sm"></i>
+                <% end %>
+                <%= link_to edit_branch_path(branch.id) do %>
+                <i class="fa fa-regular fa-pen-to-square btn btn-warning btn-sm"></i>
+                <% end %>
+                <%= link_to branch_path(branch.id),method: :delete do %>
+                <i class="fa fa-trash btn btn-danger btn-sm"></i>
+                <% end %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>

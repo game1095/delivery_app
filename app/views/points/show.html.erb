@@ -1,0 +1,72 @@
+<h1>ข้อมูลจุดจ่าย</h1>
+<%= link_to 'ย้อนกลับ' , root_path , class: 'btn btn-danger' %>
+<%= link_to 'เพิ่มจุดจ่าย' , new_point_path , class: 'btn btn-primary' %>
+<hr>
+<div class="row">
+  <div class="col-lg-5">
+    <div class="ibox">
+      <div class="ibox-title"><b>ข้อมูลเพิ่มเติมจุดจ่าย</b></div>
+      <div class="ibox-content">
+        <p><b>ข้อมูลทั่วไป</b></p>
+        <div class="row">
+          <div class="col-lg-6">
+            <ul>
+              <li><b>ด้านจ่าย : </b><%= @point.branch.name %></li>
+              <li><b>จุดจ่าย : </b><%= @point.delivery_point %></li>
+              <li><b>ระวาง : </b><%= @point.section %></li>
+              <li><b>บ้านเลขที่ : </b><%= @point.house_number %></li>
+              <li><b>หมู่ที่ : </b><%= @point.moo %></li>
+              <li><b>หมู่บ้าน: </b><%= @point.village %></li>
+              <li><b>ตำบล : </b><%= @point.sub_district %></li>
+            </ul>
+          </div>
+          <div class="col-lg-6">
+            <ul>
+              <li><b>อำเภอ : </b><%= @point.district %></li>
+              <li><b>จังหวัด : </b><%= @point.province %></li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <p><b>สภาพภูมิประเทศของท้องที่ : </b><%= @point.landmark %></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <p><b>ข้อมูลทั่วไปของด้านจ่าย <%= @point.branch.name %></b></p>
+            <div class="row">
+                <ul>
+                  <li><b>ชื่อด้านจ่าย : </b><%= @point.branch.name %></li>
+                  <li><b>ประเภทด้านจ่าย : </b><%= @point.branch.branch_type.name %></li>
+                  <li><b>ทิศเหนือจรด : </b><%= @point.branch.north %></li>
+                  <li><b>ทิศใต้จรด : </b></li>
+                  <li><b>ทิศตะวันตกจรด : </b></li>
+                  <li><b>ทิศตะวันออกจรด : </b></li>
+                </ul>
+
+                <ul>
+                  <li><b>สถานที่สำคัญ : </b><%= @point.branch.important_place %></li>
+                  <li><b>ถนนสำคัญ : </b><%= @point.branch.important_road %></li>
+                </ul>
+            </div>
+            <div class="row">
+              <div class="col-lg-12">
+                <p><b>สภาพภูมิประเทศของท้องที่ : </b><%= @point.branch.geography %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-7">
+    <div class="ibox">
+      <div class="ibox-title"><b>ข้อมูลจุดจ่าย</b></div>
+      <div class="ibox-content">
+        <img src="https://media.wired.com/photos/59269cd37034dc5f91bec0f1/master/pass/GoogleMapTA.jpg" alt="" width="700px" height="500px">
+      </div>
+    </div>
+  </div>
+
+</div>

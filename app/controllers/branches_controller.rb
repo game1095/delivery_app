@@ -28,6 +28,8 @@ class BranchesController < ApplicationController
 
   def show
     @branch = Branch.find(params[:id])
+    @count = @branch.point.count
+
   end
 
   def destroy

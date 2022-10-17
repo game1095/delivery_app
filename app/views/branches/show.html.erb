@@ -1,25 +1,61 @@
 <h1>ข้อมูลเพิ่มเดิมด้านจ่าย</h1>
+<%= link_to 'ย้อนกลับ' , root_path , class: 'btn btn-danger' %>
+<%= link_to 'เพิ่มจุดจ่าย' , new_point_path , class: 'btn btn-primary' %>
+<hr>
 <div class="row">
-  <div class="col-4">
-
+  <div class="col-lg-5">
+    <div class="ibox">
+      <div class="ibox-title">ข้อมูลเพิ่มเติมด้านจ่าย <b><%= @branch.name %></b></div>
+      <div class="ibox-content">
+        <p><b>ข้อมูลทั่วไป</b></p>
+        <div class="row">
+          <div class="col-lg-6">
+            <ul>
+              <li><b>ชื่อด้านจ่าย : </b><%= @branch.name %></li>
+              <li><b>ประเภทด้านจ่าย : </b><%= @branch.branch_type.name %></li>
+              <li><b>ทิศเหนือจรด : </b><%= @branch.north %></li>
+              <li><b>ทิศใต้จรด : </b></li>
+              <li><b>ทิศตะวันตกจรด : </b></li>
+              <li><b>ทิศตะวันออกจรด : </b></li>
+            </ul>
+          </div>
+          <div class="col-lg-6">
+            <ul>
+              <li><b>สถานที่สำคัญ : </b><%= @branch.important_place %></li>
+              <li><b>ถนนสำคัญ : </b><%= @branch.important_road %></li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <p><b>สภาพภูมิประเทศของท้องที่ : </b><%= @branch.geography %></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <p><b>จำนวนจุดจ่าย : </b><%= @count %></p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="col-8">
-    <p>
-      <table class="table table-hover table-bordered">
-        <thead>
-          <th>จุดจ่าย</th>
-          <th>ระวาง</th>
-          <th>บ้านเลขที่</th>
-          <th>หมู่ที่</th>
-          <th>หมู่บ้าน</th>
-          <th>ถนน</th>
-          <th>ตำบล</th>
-          <th>อำเภอ</th>
-          <th>จังหวัด</th>
-          <th></th>
-        </thead>
-        <tbody>
-          <% @branch.point.each do |point| %>
+  <div class="col-lg-7">
+    <div class="ibox">
+      <div class="ibox-title"><b>ข้อมูลจุดจ่าย</b></div>
+      <div class="ibox-content">
+        <table class="table table-hover table-bordered">
+          <thead>
+            <th>จุดจ่าย</th>
+            <th>ระวาง</th>
+            <th>บ้านเลขที่</th>
+            <th>หมู่ที่</th>
+            <th>หมู่บ้าน</th>
+            <th>ถนน</th>
+            <th>ตำบล</th>
+            <th></th>
+          </thead>
+          <tbody>
+            <% @branch.point.each do |point| %>
             <tr>
               <td><%= point.delivery_point %></td>
               <td><%= point.section %></td>
@@ -28,24 +64,39 @@
               <td><%= point.village %></td>
               <td><%= point.road %></td>
               <td><%= point.sub_district %></td>
-              <td><%= point.district %></td>
-              <td><%= point.province %></td>
               <td>
                 <%= link_to point_path(point.id) do %>
-                  <i class="fa fa-regular fa-eye btn btn-primary btn-sm"></i>
+                <i class="fa fa-regular fa-eye btn btn-primary btn-sm"></i>
                 <% end %>
                 <%= link_to edit_point_path(point.id) do %>
-                  <i class="fa fa-regular fa-pen-to-square btn btn-warning btn-sm"></i>
+                <i class="fa fa-regular fa-pen-to-square btn btn-warning btn-sm"></i>
                 <% end %>
                 <%= link_to point_path(point.id),method: :delete do %>
-                  <i class="fa fa-trash btn btn-danger btn-sm"></i>
+                <i class="fa fa-trash btn btn-danger btn-sm"></i>
                 <% end %>
               </td>
             </tr>
-          <% end %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="ibox">
+    <div class="ibox-title">จัดระวาง</div>
+    <div class="ibox-content">
+      <table class="table table-hover table-bordered">
+        <thead>
+          <th>f</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>ff</td>
+          </tr>
         </tbody>
       </table>
-    </p>
+    </div>
   </div>
-
 </div>

@@ -14,10 +14,12 @@ gem "bootsnap", require: false
 gem 'pg', '~> 1.4', '>= 1.4.3'
 gem 'devise'
 gem 'rails_admin', '~> 3.0'
-gem 'bootstrap', '~> 5.2', '>= 5.2.1'
+# gem 'bootstrap', '~> 5.2', '>= 5.2.1'
 gem 'jquery-rails'
 # gem "font-awesome-rails"
 gem "font-awesome-sass", "~> 6.2.0"
+# gem 'bootstrap-sass'
+# gem 'sassc-rails'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
