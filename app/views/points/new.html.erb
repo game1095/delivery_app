@@ -1,2 +1,38 @@
-<h1>สร้างจุดจ่าย</h1>
+<h1>สร้างจุดจ่าย สำหรับด้านจ่าย <b><%= @branch.name %></b></h1>
 <%= render 'form' %>
+<hr>
+<div class="ibox">
+  <div class="ibox-title"><b>ข้อมูลจุดจ่ายด้านจ่าย <%= @branch.name %> (จำนวนจุดจ่าย <%= @count %> จุด) </b></div>
+  <div class="ibox-content">
+    <table class="table table-hover table-bordered">
+      <thead>
+        <th>จุดจ่าย</th>
+        <th>ระวาง</th>
+        <th>บ้านเลขที่</th>
+        <th>หมู่ที่</th>
+        <th>หมู่บ้าน</th>
+        <th>ถนน</th>
+        <th>ตำบล</th>
+        <th></th>
+      </thead>
+      <tbody>
+        <% @all_point.each do |point| %>
+          <tr>
+            <td><%= point.delivery_point %></td>
+            <td><%= point.section %></td>
+            <td><%= point.house_number %></td>
+            <td><%= point.moo %></td>
+            <td><%= point.village %></td>
+            <td><%= point.road %></td>
+            <td><%= point.sub_district %></td>
+            <td>
+              <%= link_to branch_point_path(@branch.id , point.id) do %>
+                <i class="fa fa-regular fa-eye btn btn-primary btn-sm"></i>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

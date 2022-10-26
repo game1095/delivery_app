@@ -3,15 +3,15 @@
     <button class="btn btn-primary dim btn-large-dim" type="button"><i class="fa fa-plus"><h5>สร้างด้านจ่าย</h5></i></button>
   <% end %>
 
-  <%= link_to new_point_path do %>
+  <%= link_to root_path do %>
     <button class="btn btn-success dim btn-large-dim" type="button"><i class="fa fa-map-marker"><h5>สร้างจุดจ่าย</h5></i></button>
   <% end %>
 
-  <%= link_to new_point_path do %>
+  <%= link_to root_path do %>
     <button class="btn btn-info dim btn-large-dim" type="button"><i class="fa fa-envelope"><h5 class="center">คู่มือนำจ่าย</h5></i></button>
   <% end %>
 
-  <%= link_to new_point_path do %>
+  <%= link_to root_path do %>
     <button class="btn btn-primary dim btn-large-dim" type="button"><i class="fa fa-info"><h5 class="center">ช่วยเหลือ</h5></i></button>
   <% end %>
 
@@ -46,13 +46,13 @@
               <td><%= branch.post_office.name %></td>
               <td>
                 <%= link_to branch_path(branch.id) do %>
-                <i class="fa fa-regular fa-eye btn btn-primary btn-sm"></i>
+                  <i class="fa fa-regular fa-eye btn btn-primary btn-sm"></i>
                 <% end %>
                 <%= link_to edit_branch_path(branch.id) do %>
-                <i class="fa fa-regular fa-pen-to-square btn btn-warning btn-sm"></i>
+                  <i class="fa fa-regular fa-pen-to-square btn btn-warning btn-sm"></i>
                 <% end %>
                 <%= link_to branch_path(branch.id),method: :delete do %>
-                <i class="fa fa-trash btn btn-danger btn-sm"></i>
+                  <i class="fa fa-trash btn btn-danger btn-sm"></i>
                 <% end %>
               </td>
             </tr>
