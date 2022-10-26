@@ -25,7 +25,7 @@
                     <i class="fa fa-user fa-5x"></i>
                   </span>
                     <h4><%= current_user.full_name %> </h4>
-                    <%= link_to "ออกจากระบบ", destroy_user_session_path, method: :delete , class: 'btn btn-danger btn-sm'%>
+                    <%= link_to "ออกจากระบบ", destroy_user_session_path , class: 'btn btn-danger btn-sm' , data:{"turbo-method": :delete} %>
                   </div>
                   <div class="hr-line-dashed"></div>
                 </li>

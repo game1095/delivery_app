@@ -1,26 +1,21 @@
 <div class="card">
   <div class="card-body">
-    <%= form_for @point do |form| %>
+    <%= form_for [@branch , @point] do |form| %>
     <div class="row">
-      <div class="col-lg-4">
+      <div class="col-lg-6">
         <div class="form-group">
           <%= form.label :จุดจ่าย , class: 'control-label' %>
-          <%= form.text_field :delivery_point , class: 'form-control'%>
+          <%= form.text_field :delivery_point , class: 'form-control' , value: @increment_delivery_point %>
         </div>
       </div>
-      <div class="col-lg-4">
+      <div class="col-lg-6">
         <div class="form-group">
           <%= form.label :ระวาง , class: 'control-label' %>
-          <%= form.text_field :section , class: 'form-control'  %>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="form-group">
-          <%= form.label :ด้านจ่าย , class: 'control-label' %>
-          <%= form.collection_select :branch_id , Branch.all , :id , :name , {prompt: 'กรุณาเลือกด้านจ่าย'} , class: 'form-control' %>
+          <%= form.text_field :section , class: 'form-control' , value: 1.to_i %>
         </div>
       </div>
     </div>
+    <%= form.hidden_field :branch_id , value: @branch.id %>
     <hr>
     <div class="row">
       <div class="col-lg-6">
@@ -38,7 +33,7 @@
         </div>
         <div class="form-group">
           <%= form.label :อำเภอ , class: 'control-label' %>
-          <%= form.text_field :district , class: 'form-control'%>
+          <%= form.text_field :district , class: 'form-control' , value: @lasted_district%>
         </div>
       </div>
       <div class="col-lg-6">
@@ -73,7 +68,7 @@
     <br>
     <div class="row">
         <%= form.submit 'บันทึกข้อมูล' , class: 'btn btn-success btn-sm btn-block' %><br>
-        <%= link_to 'ย้อนกลับ' , root_path , class: 'btn btn-danger  btn-sm btn-block' %>
+        <%= link_to 'ย้อนกลับ' , branch_path(@branch.id) , class: 'btn btn-danger  btn-sm btn-block' %>
     </div>
   </div>
 </div>
